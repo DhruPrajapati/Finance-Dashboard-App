@@ -5,7 +5,7 @@ import type {
   GetTransactionsResponse,
 } from "./types";
 
-const baseUrl = import.meta.env.VITE_BASE_URL;;
+const baseUrl = import.meta.env.BACK_END_URL;
 
 export const api = createApi({
   baseQuery: fetchBaseQuery({ baseUrl }),
