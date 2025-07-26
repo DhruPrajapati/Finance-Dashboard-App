@@ -8,8 +8,13 @@ import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
 import kpiRoutes from "./routes/kpi.js";
+import productRoutes from "./routes/product.js";
+import transactionsRoutes from "./routes/transaction.js";
+import Product from "./models/Product.js";
 import KPI from "./models/KPI.js";
-import { kpis } from "./data/seed.js";
+import Transaction from "./models/Transaction.js";
+
+import { kpis, products, transactions } from "./data/seed.js";
 
 const app = express();
 
@@ -23,13 +28,15 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 app.use(
   cors({
-    // origin: "http://localhost:5174", 
+    // origin: "http://localhost:5174",
     credentials: true,
   })
 );
 
 // Routes
 app.use("/kpi", kpiRoutes);
+app.use("/product", productRoutes);
+app.use("/transction",transactionsRoutes);
 
 // DB Connection
 const PORT = process.env.PORT || 1337;
@@ -41,8 +48,10 @@ mongoose
 
     // Uncomment to seed DB during dev
 
-    //   await mongoose.connection.db.dropDatabase();
-    //   await KPI.insertMany(kpis);
+    // await mongoose.connection.db.dropDatabase();
+    // await KPI.insertMany(kpis);
+    // await Product.insertMany(products);
+    // await Transaction.insertMany(transactions);
   })
   .catch((error) =>
     console.error("❌ MongoDB Connection Error:", error.message)
