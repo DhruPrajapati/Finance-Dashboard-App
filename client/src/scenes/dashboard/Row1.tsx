@@ -16,7 +16,7 @@ import {
   LineChart,
   BarChart,
   Bar,
-  Rectangle,
+
 } from "recharts";
 
 const Row1 = () => {

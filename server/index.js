@@ -13,7 +13,6 @@ import transactionsRoutes from "./routes/transaction.js";
 import Product from "./models/Product.js";
 import KPI from "./models/KPI.js";
 import Transaction from "./models/Transaction.js";
-
 import { kpis, products, transactions } from "./data/seed.js";
 
 const app = express();
@@ -36,7 +35,7 @@ app.use(
 // Routes
 app.use("/kpi", kpiRoutes);
 app.use("/product", productRoutes);
-app.use("/transction",transactionsRoutes);
+app.use("/transaction",transactionsRoutes);
 
 // DB Connection
 const PORT = process.env.PORT || 1337;
