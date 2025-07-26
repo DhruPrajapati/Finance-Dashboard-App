@@ -32,7 +32,7 @@ const Row3 = () => {
       ]);
   }, [kpiData]);
 
-  console.log("🚀 ~ Row3 ~ pieChartData:", pieChartData);
+
 
   const productColumns = [
     {
@@ -161,12 +161,14 @@ const Row3 = () => {
                   outerRadius={35}
                   paddingAngle={2}
                   dataKey="value">
-                  {data.map((entry, index) => (
+                  {data.map((_, index) => (
                     <Cell key={`cell-${index}`} fill={pieColors[index]} />
                   ))}
                 </Pie>
               </PieChart>
-              <Typography variant="h5" margin="-10px">{data[0].name}</Typography>
+              <Typography variant="h5" margin="-10px">
+                {data[0].name}
+              </Typography>
             </Box>
           ))}
         </FlexBetween>
