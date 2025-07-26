@@ -5,9 +5,10 @@ import type {
   GetTransactionsResponse,
 } from "./types";
 
+const baseUrl = import.meta.env.VITE_BASE_URL;;
 
 export const api = createApi({
-  baseQuery: fetchBaseQuery({ baseUrl: import.meta.env.VITE_BASE_URL }),
+  baseQuery: fetchBaseQuery({ baseUrl }),
   reducerPath: "main",
   tagTypes: ["Kpis", "Products", "Transactions"],
   endpoints: (build) => ({
